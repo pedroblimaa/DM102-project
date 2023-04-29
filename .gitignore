@@ -1,0 +1,59 @@
+HELP.md
+target/
+bin/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Maven build files
+log/
+target/
+*.log
+mvnw
+mvnw.cmd
+gradle/
+.gradle/
+build/
+out/
+build.gradle
+gradlew
+gradlew.bat
+
+# Other files
+*.iml
+*.ipr
+*.iws
+*.jar
+*.war
+*.ear
+*.class
+*.swp
+.DS_Store
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/

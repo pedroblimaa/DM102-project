@@ -1,5 +1,8 @@
-package com.deliveryfoodapp.model;
+package com.deliveryfoodapp.DTO;
 
+import lombok.Data;
+
+@Data
 public class CustomerDTO {
 
   private String name;

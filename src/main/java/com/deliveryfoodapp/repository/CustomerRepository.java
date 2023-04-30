@@ -9,4 +9,6 @@ import com.deliveryfoodapp.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
   List<Customer> findAll();
+
+  Customer findById(Long id);
 }

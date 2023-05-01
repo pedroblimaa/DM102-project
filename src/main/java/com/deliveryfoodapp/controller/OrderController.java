@@ -33,7 +33,7 @@ public class OrderController {
   private MenuItemRepository menuItemRepo;
 
   @PostMapping("/order")
-  public void createOrder(@RequestBody OrderDTO orderDTO) {
+  public Order createOrder(@RequestBody OrderDTO orderDTO) {
     Customer customer = customerRepo.findById(orderDTO.getCustomerId());
 
     if (customer == null) {
@@ -53,5 +53,7 @@ public class OrderController {
     }
 
     orderRepo.save(order);
+
+    return order;
   }
 }

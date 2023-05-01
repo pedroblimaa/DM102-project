@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.deliveryfoodapp.DTO.CustomerDTO;
 import com.deliveryfoodapp.exceptions.CustomerAlreadyExistsException;
 import com.deliveryfoodapp.model.Customer;
-import com.deliveryfoodapp.model.CustomerDTO;
 import com.deliveryfoodapp.repository.CustomerRepository;
 import com.deliveryfoodapp.service.CustomerService;
 
@@ -40,7 +40,7 @@ public class CustomerController {
       throw new CustomerAlreadyExistsException("Customer already exists.");
     }
 
-    logger.log(Level.FINE, String.format("Customer %s registered successfully.", customer.getCustomerId()));
+    logger.log(Level.FINE, String.format("Customer %s registered successfully.", customer.getId()));
 
     return customer;
   }

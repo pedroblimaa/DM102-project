@@ -13,4 +13,10 @@ public class RestExceptionHandler {
     public ErrorMessage handleCustomerAlreadyExistsExceptionException(CustomerAlreadyExistsException ex) {
         return new ErrorMessage(ex.getMessage(), HttpStatus.BAD_REQUEST.value());
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorMessage handleException(Exception ex) {
+        return new ErrorMessage(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
+    }
 }

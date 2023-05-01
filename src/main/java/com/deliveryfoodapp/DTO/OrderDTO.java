@@ -2,9 +2,6 @@ package com.deliveryfoodapp.DTO;
 
 import java.util.List;
 
-import com.deliveryfoodapp.model.Customer;
-import com.deliveryfoodapp.model.Order;
-
 public class OrderDTO {
 
   private Long restaurantId;

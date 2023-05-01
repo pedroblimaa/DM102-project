@@ -14,6 +14,7 @@ import com.deliveryfoodapp.model.Order;
 import com.deliveryfoodapp.model.OrderItem;
 import com.deliveryfoodapp.repository.CustomerRepository;
 import com.deliveryfoodapp.repository.MenuItemRepository;
+import com.deliveryfoodapp.repository.OrderItemRepository;
 import com.deliveryfoodapp.repository.OrderRepository;
 
 @RestController
@@ -24,6 +25,9 @@ public class OrderController {
 
   @Autowired
   private OrderRepository orderRepo;
+
+  @Autowired
+  private OrderItemRepository orderItemRepo;
 
   @Autowired
   private MenuItemRepository menuItemRepo;
@@ -43,8 +47,9 @@ public class OrderController {
       if (menuItem == null) {
         throw new NotFoundException("MenuItem", orderItemDTO.getItemId());
       }
-      OrderItem orderItem = new OrderItem(menuItem.getId(), orderItemDTO.getQuantity());
+      OrderItem orderItem = new OrderItem(menuItem, orderItemDTO.getQuantity());
       order.addItem(orderItem);
+      orderItemRepo.save(orderItem);
     }
 
     orderRepo.save(order);

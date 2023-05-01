@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.deliveryfoodapp.model.Order;
+import com.deliveryfoodapp.model.OrderItem;
 
-public interface OrderRepository extends JpaRepository<Order, UUID> {
+public interface OrderItemRepository extends JpaRepository<OrderItem, UUID> {
 }

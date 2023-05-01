@@ -18,7 +18,7 @@ public class OrderItem {
   private Long id;
 
   @OneToOne
-  private Long menuItemId;
+  private MenuItem menuItem;
 
   @Column
   private int quantity;
@@ -27,8 +27,8 @@ public class OrderItem {
 
   }
 
-  public OrderItem(Long menuItemId, int quantity) {
-    this.menuItemId = menuItemId;
+  public OrderItem(MenuItem menuItem, int quantity) {
+    this.menuItem = menuItem;
     this.quantity = quantity;
   }
 
@@ -36,12 +36,12 @@ public class OrderItem {
     return id;
   }
 
-  public Long getMenuItemId() {
-    return menuItemId;
+  public MenuItem getMenuItem() {
+    return menuItem;
   }
 
-  public void setMenuItemId(Long menuItemId) {
-    this.menuItemId = menuItemId;
+  public void setMenuItem(MenuItem menuItem) {
+    this.menuItem = menuItem;
   }
 
   public int getQuantity() {

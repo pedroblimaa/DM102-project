@@ -22,6 +22,9 @@ public class Customer {
 
   @OneToOne
   private Address address;
+  
+  @OneToOne
+  private Wallet wallet;
 
   public Customer() {
 
@@ -50,5 +53,13 @@ public class Customer {
 
   public void setAddress(Address address) {
     this.address = address;
+  }
+  
+  public Wallet getWallet() {
+	return wallet;
+  }
+
+  public void setPayment(Wallet wallet) {
+	this.wallet = wallet;
   }
 }

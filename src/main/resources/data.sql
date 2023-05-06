@@ -8,10 +8,15 @@ INSERT INTO address (street, number, complement) VALUES
 ('Pine Rd', '654', NULL),
 ('Cedar Blvd', '987', NULL);
 
-INSERT INTO customer (name, address_id) VALUES
-('Sarah Lee', 1),
-('Alex Chen', 2),
-('Emma Davis', 3);
+INSERT INTO wallet (balance) VALUES
+(49.99),
+(49.99),
+(49.99);
+
+INSERT INTO customer (name, address_id, balance_id) VALUES
+('Sarah Lee', 1, 1),
+('Alex Chen', 2, 2),
+('Emma Davis', 3, 3);
 
 INSERT INTO drivers (name, phone, license_plate) VALUES
 ('John Doe', '555-4321', 'JKL321'),

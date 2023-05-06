@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,14 +20,14 @@ public class Customer {
   @Column
   private String name;
 
-  @Column
-  private String address;
+  @OneToOne
+  private Address address;
 
   public Customer() {
 
   }
 
-  public Customer(String name, String address) {
+  public Customer(String name, Address address) {
     this.name = name;
     this.address = address;
   }
@@ -43,11 +44,11 @@ public class Customer {
     this.name = name;
   }
 
-  public String getAddress() {
+  public Address getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  public void setAddress(Address address) {
     this.address = address;
   }
 }

@@ -1,15 +1,17 @@
 package com.deliveryfoodapp.DTO;
 
+import com.deliveryfoodapp.model.Address;
+
 public class CustomerDTO {
 
   private String name;
-  private String address;
+  private Address address;
 
   public CustomerDTO() {
 
   }
 
-  public CustomerDTO(String name, String address) {
+  public CustomerDTO(String name, Address address) {
     this.name = name;
     this.address = address;
   }
@@ -22,11 +24,11 @@ public class CustomerDTO {
     this.name = name;
   }
 
-  public String getAddress() {
+  public Address getAddress() {
     return address;
   }
 
-  public void setAddress(String address) {
+  public void setAddress(Address address) {
     this.address = address;
   }
 }

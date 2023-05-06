@@ -3,6 +3,11 @@ INSERT INTO category (name) VALUES
 ('Japanese'),
 ('American');
 
+INSERT INTO address (street, number, complement) VALUES 
+('Oak St', '321', NULL),
+('Pine Rd', '654', NULL),
+('Cedar Blvd', '987', NULL);
+
 INSERT INTO customer (name, address) VALUES
 ('Sarah Lee', '123 Main St'),
 ('Alex Chen', '456 Elm St'),

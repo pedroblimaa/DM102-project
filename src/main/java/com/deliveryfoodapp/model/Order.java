@@ -11,6 +11,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -31,8 +32,8 @@ public class Order {
   @Column
   private Date orderDate;
 
-  @Column
-  private String deliveryAddress;
+  @OneToOne
+  private Address deliveryAddress;
 
   @Column
   private String status;
@@ -72,11 +73,11 @@ public class Order {
     this.orderDate = orderDate;
   }
 
-  public String getDeliveryAddress() {
+  public Address getDeliveryAddress() {
     return deliveryAddress;
   }
 
-  public void setDeliveryAddress(String deliveryAddress) {
+  public void setDeliveryAddress(Address deliveryAddress) {
     this.deliveryAddress = deliveryAddress;
   }
 

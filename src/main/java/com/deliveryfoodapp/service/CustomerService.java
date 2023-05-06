@@ -24,4 +24,13 @@ public class CustomerService {
 
     return false;
   }
+
+  public Customer getCustomerById(Long id) {
+    Customer customer = customerRepo.findById(id);
+    if (customer == null) {
+      throw new IllegalArgumentException("Customer does not exist.");
+    }
+
+    return customer;
+  }
 }

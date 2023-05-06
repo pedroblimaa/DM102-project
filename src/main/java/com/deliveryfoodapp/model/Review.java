@@ -26,12 +26,12 @@ public class Review {
   private String reviewDescription;
 
   @Column
-  private Long rating;
+  private int rating;
 
   public Review() {
   }
 
-  public Review(Customer customer, Restaurant restaurant, String reviewDescription, Long rating) {
+  public Review(Customer customer, Restaurant restaurant, String reviewDescription, int rating) {
     this.customer = customer;
     this.restaurant = restaurant;
     this.reviewDescription = reviewDescription;
@@ -62,11 +62,11 @@ public class Review {
     this.reviewDescription = reviewDescription;
   }
 
-  public Long getRating() {
+  public int getRating() {
     return rating;
   }
 
-  public void setRating(Long rating) {
+  public void setRating(int rating) {
     this.rating = rating;
   }
 

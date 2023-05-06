@@ -8,10 +8,10 @@ INSERT INTO address (street, number, complement) VALUES
 ('Pine Rd', '654', NULL),
 ('Cedar Blvd', '987', NULL);
 
-INSERT INTO customer (name, address) VALUES
-('Sarah Lee', '123 Main St'),
-('Alex Chen', '456 Elm St'),
-('Emma Davis', '789 Maple Ave');
+INSERT INTO customer (name, address_id) VALUES
+('Sarah Lee', 1),
+('Alex Chen', 2),
+('Emma Davis', 3);
 
 INSERT INTO drivers (name, phone, license_plate) VALUES
 ('John Doe', '555-4321', 'JKL321'),
@@ -31,7 +31,14 @@ INSERT INTO restaurants (name, address, phone, category_id) VALUES
 INSERT INTO reviews (customer_id, restaurant_id, review_description, rating) VALUES
 (1, 1, 'Best pizza I have ever had!', 5),
 (2, 2, 'Decent sushi, but a bit overpriced', 3),
-(3, 3, 'Amazing burgers and friendly service', 5);
+(3, 3, 'Amazing burgers and friendly service', 5),
+(1, 2, 'Great atmosphere and delicious cocktails', 4),
+(2, 1, 'Disappointing pasta dish, but excellent tiramisu', 2),
+(3, 2, 'Fresh sushi and attentive service', 4),
+(1, 3, 'Huge portions and tasty fries', 4),
+(2, 3, 'Decent sandwiches, but nothing special', 3),
+(3, 1, 'Fast service, but average pizza', 3);
+
 
 INSERT INTO restaurants_menu_items (restaurant_id, menu_items_id) VALUES
 (1, 1),

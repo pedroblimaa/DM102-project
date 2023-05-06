@@ -2,9 +2,6 @@ package com.deliveryfoodapp.DTO;
 
 import com.deliveryfoodapp.model.Restaurant;
 
-import lombok.Data;
-
-@Data
 public class RestaurantDTO {
 
   private Long id;

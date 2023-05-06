@@ -21,7 +21,13 @@ INSERT INTO drivers (name, phone, license_plate) VALUES
 INSERT INTO menu_items (name, description, price) VALUES
 ('Pepperoni Pizza', 'Tomato sauce, mozzarella cheese, and pepperoni', 10.99),
 ('California Roll', 'Crab, avocado, and cucumber wrapped in seaweed and rice', 8.99),
-('Bacon Cheeseburger', 'Beef patty, bacon, American cheese, lettuce, tomato, and onion on a bun', 9.99);
+('Bacon Cheeseburger', 'Beef patty, bacon, American cheese, lettuce, tomato, and onion on a bun', 9.99),
+('Margherita Pizza', 'Tomato sauce, fresh mozzarella, and basil', 9.99),
+('Dragon Roll', 'Shrimp tempura, avocado, and eel sauce wrapped in seaweed and rice', 12.99),
+('Mushroom Swiss Burger', 'Beef patty, sautéed mushrooms, Swiss cheese, lettuce, tomato, and onion on a bun', 10.99),
+('Spaghetti Bolognese', 'Spaghetti with meat sauce made from ground beef, tomato, and spices', 11.99),
+('Tuna Poke Bowl', 'Raw tuna, avocado, cucumber, and rice topped with soy sauce and sesame seeds', 13.99),
+('Chicken Caesar Salad', 'Romaine lettuce, grilled chicken, croutons, Parmesan cheese, and Caesar dressing', 8.99);
 
 INSERT INTO restaurants (name, address, phone, category_id) VALUES
 ('Marios Pizza', '321 Oak St', '555-1234', 1),
@@ -43,6 +49,12 @@ INSERT INTO reviews (customer_id, restaurant_id, review_description, rating) VAL
 INSERT INTO restaurants_menu_items (restaurant_id, menu_items_id) VALUES
 (1, 1),
 (2, 2),
-(3, 3);
+(3, 3),
+(1, 4),
+(2, 5),
+(3, 6),
+(1, 7),
+(2, 8),
+(3, 9);
 
 COMMIT;

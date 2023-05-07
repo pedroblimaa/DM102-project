@@ -14,7 +14,7 @@ public class Driver {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
-  private Long deliveryPersonId;
+  private Long id;
 
   @Column
   private String name;
@@ -35,7 +35,7 @@ public class Driver {
   }
 
   public Long getDeliveryPersonId() {
-    return deliveryPersonId;
+    return id;
   }
 
   public String getName() {

@@ -13,6 +13,7 @@ import com.deliveryfoodapp.model.Customer;
 import com.deliveryfoodapp.model.MenuItem;
 import com.deliveryfoodapp.model.Order;
 import com.deliveryfoodapp.model.OrderItem;
+import com.deliveryfoodapp.model.Wallet;
 import com.deliveryfoodapp.repository.CustomerRepository;
 import com.deliveryfoodapp.repository.MenuItemRepository;
 import com.deliveryfoodapp.repository.OrderItemRepository;
@@ -44,7 +45,10 @@ public class OrderController {
     if (customer == null) {
     	throw new NotFoundException("Customer", orderDTO.getCustomerId());
     }
-    if (customer.getWallet().getBalance() < orderService.getTotalAmount(orderDTO)) {
+    double totalAmount = orderService.getTotalAmount(orderDTO);
+    Wallet wallet = customer.getWallet();
+    
+	if (wallet.getBalance() < totalAmount) {
     	throw new WithoutBalanceException(customer.getName());
     }
 
@@ -59,7 +63,8 @@ public class OrderController {
       order.addItem(orderItem);
       orderItemRepo.save(orderItem);
     }
-
+    
+    wallet.withdraw(totalAmount);
     orderRepo.save(order);
 
     return order;

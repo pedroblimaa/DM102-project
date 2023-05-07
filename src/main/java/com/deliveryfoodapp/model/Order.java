@@ -21,7 +21,7 @@ public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column
-  private Long orderId;
+  private Long id;
 
   @ManyToOne
   private Customer customer;
@@ -34,9 +34,12 @@ public class Order {
 
   @OneToOne
   private Address deliveryAddress;
-
+  
   @Column
   private String status;
+  
+  @OneToOne
+  private Driver driver;
 
   public Order() {
 
@@ -46,15 +49,16 @@ public class Order {
     this.customer = customer;
     this.orderDate = new Date();
     this.deliveryAddress = customer.getAddress();
-    this.status = "CREATED";
+    this.status = "PREPARING ORDER";
+    this.driver = null;
   }
 
   public Long getOrderId() {
-    return orderId;
+    return id;
   }
 
   public void setOrderId(Long orderId) {
-    this.orderId = orderId;
+    this.id = orderId;
   }
 
   public Customer getCustomer() {
@@ -91,5 +95,13 @@ public class Order {
 
   public void addItem(OrderItem orderItem) {
     this.orderItems.add(orderItem);
+  }
+  
+  public Driver getDriver() {
+	return driver;
+  }
+  
+  public void setDriver(Driver driver) {
+	this.driver = driver;
   }
 }

@@ -18,7 +18,7 @@ public class Wallet {
 	@Column
     private double balance;
 
-    public Wallet() {
+	public Wallet() {
         balance = 0;
     }
 
@@ -33,4 +33,14 @@ public class Wallet {
     public void deposit(double amount) {
         balance += amount;
     }
+    
+    public void withdraw(double amount) {
+        if (balance < amount) {
+            System.out.println("Insufficient funds");
+        } else {
+            balance -= amount;
+        }
+    }
+    
+    
 }

@@ -36,11 +36,9 @@ public class Wallet {
     
     public void withdraw(double amount) {
         if (balance < amount) {
-            System.out.println("Insufficient funds");
+            throw new IllegalArgumentException("Insufficient funds");
         } else {
             balance -= amount;
         }
     }
-    
-    
 }

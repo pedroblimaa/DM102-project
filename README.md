@@ -1,12 +1,15 @@
 # DM102-project
 
+## Requirements
+- [x] 10 Entities
+- [x] At least 1 actions for each entity (The actions can be found either in `Entity`, `Service` or `Controller`)
+
 ## Setup
 
 1. Clone repository
 `git clone https://github.com/pedroblimaa/DM102-project.git`
 
-2. Create a mySQL db in localhost named `delivery_db`
+2. Run the application with your preferred IDE
 
-3. Start the application to create the db tables
-
-4. Run the sql of the file `"src/main/resources/sql_populate/populate_db.sql"`
+## Usage
+Once the application is running, you can access the api usin the postman collection inside `src/main/resources/collection`.

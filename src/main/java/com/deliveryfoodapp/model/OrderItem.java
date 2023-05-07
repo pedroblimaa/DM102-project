@@ -51,4 +51,8 @@ public class OrderItem {
   public void setQuantity(int quantity) {
     this.quantity = quantity;
   }
+
+  public double getItemTotalAmout(OrderItem orderItem) {
+    return orderItem.getMenuItem().getPrice() * orderItem.getQuantity();
+  }
 }

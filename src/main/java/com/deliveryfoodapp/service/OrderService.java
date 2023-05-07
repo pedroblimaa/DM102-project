@@ -6,9 +6,7 @@ import org.springframework.stereotype.Service;
 import com.deliveryfoodapp.DTO.OrderDTO;
 import com.deliveryfoodapp.DTO.OrderItemDTO;
 import com.deliveryfoodapp.model.MenuItem;
-import com.deliveryfoodapp.model.OrderItem;
 import com.deliveryfoodapp.repository.MenuItemRepository;
-import com.deliveryfoodapp.repository.OrderItemRepository;
 
 @Service
 public class OrderService {

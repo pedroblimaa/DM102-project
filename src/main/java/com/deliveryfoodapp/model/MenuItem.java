@@ -66,4 +66,8 @@ public class MenuItem {
   public void setPrice(double price) {
     this.price = price;
   }
+
+  public void updatePrice(int priceIncreasePercentage) {
+    this.price = this.price + (this.price * priceIncreasePercentage / 100);
+  }
 }

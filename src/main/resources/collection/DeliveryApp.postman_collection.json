@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Scenario 1",
+			"name": "Scenario 1 - Buying",
 			"item": [
 				{
 					"name": "Get Customers",
@@ -49,11 +49,22 @@
 				},
 				{
 					"name": "Get Restaurant Menu",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"restaurantId\", 1)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/restaurant/3/menu",
+							"raw": "http://localhost:8080/restaurant/{{restaurantId}}/menu",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -61,7 +72,7 @@
 							"port": "8080",
 							"path": [
 								"restaurant",
-								"3",
+								"{{restaurantId}}",
 								"menu"
 							]
 						}
@@ -70,12 +81,26 @@
 				},
 				{
 					"name": "Create Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const orderId = responseJson.orderId;\r",
+									"\r",
+									"pm.collectionVariables.set(\"orderId\", orderId)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"restaurantId\": 3,\r\n    \"customerId\": 1,\r\n    \"items\": [\r\n        {\r\n            \"itemId\": 3,\r\n            \"quantity\": 4\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"restaurantId\": 3,\r\n    \"customerId\": 2,\r\n    \"items\": [\r\n        {\r\n            \"itemId\": 3,\r\n            \"quantity\": 4\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -95,30 +120,73 @@
 						}
 					},
 					"response": []
-				},
+				}
+			]
+		},
+		{
+			"name": "Scenario 2  - Delivering",
+			"item": [
 				{
-					"name": "Create Review",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"restaurantId\": 3,\r\n    \"customerId\": 1,\r\n    \"description\": \"too salty\",\r\n    \"rating\": 4\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
+					"name": "Set order to Delivering",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"driverId\", 1)"
+								],
+								"type": "text/javascript"
 							}
-						},
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/review",
+							"raw": "http://localhost:8080/driver/orders/{{orderId}}/{{driverId}}",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"review"
+								"driver",
+								"orders",
+								"{{orderId}}",
+								"{{driverId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set order to Delivered",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"driverId\", 1)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/driver/orders/{{orderId}}/delivered",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"driver",
+								"orders",
+								"{{orderId}}",
+								"delivered"
 							]
 						}
 					},
@@ -195,8 +263,50 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"restaurantId\": 3,\r\n    \"customerId\": 1,\r\n    \"description\": \"too salty\",\r\n    \"rating\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/review",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"review"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "restaurantId",
+			"value": ""
+		},
+		{
+			"key": "orderId",
+			"value": ""
+		},
+		{
+			"key": "driverId",
+			"value": ""
 		}
 	]
 }

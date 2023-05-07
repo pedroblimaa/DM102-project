@@ -66,4 +66,8 @@ public class Address {
   public void setComplement(String complement) {
     this.complement = complement;
   }
+
+  public String getFullAddress() {
+    return this.getStreet() + ", " + this.getNumber() + ", " + this.getComplement();
+  }
 }

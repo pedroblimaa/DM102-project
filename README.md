@@ -1,5 +1,10 @@
 # DM102 project - Delivery App
 
+## Group
+
+- Pedro Bonfilio Lima
+- Luiz Fhelipy Rodrigues Teixeira
+
 ## Requirements
 - [x] Choose theme (Delivery App)
 - [x] Minimun 3 characteristic for each entity

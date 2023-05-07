@@ -1,6 +1,8 @@
-# DM102-project
+# DM102 project - Delivery App
 
 ## Requirements
+- [x] Choose theme (Delivery App)
+- [x] Minimun 3 characteristic for each entity
 - [x] 10 Entities
 - [x] At least 1 actions for each entity (The actions can be found either in `Entity`, `Service` or `Controller`)
 
